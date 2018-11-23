@@ -4,13 +4,13 @@ package ultimologica;
  * @author leomare12
  */
 public class ListaLigada {
-    private Nodo ult;
     private Nodo cab;
+    private Nodo ult;
     private Nodo x;
     
     public ListaLigada(){
-        this.cab = new Nodo('0');
-        this.ult = x = cab;
+        cab = new Nodo('0');
+        ult = x = cab;
     }
 
     public void CreaLista (char pCar) {
@@ -24,18 +24,17 @@ public class ListaLigada {
         Nodo nuevoCar = new Nodo(pCar);
         int contar = 0;
         Nodo p = cab.getLigaDer();
-        while (contar != 2){
+        while (contar != 1){
             if (p.getCar() == ' '){
-                contar++;
+                contar = contar + 1;
             }
             p = p.getLigaDer();
         }
         p = p.getLigaDer();
-        nuevoCar.setLigaIzq(p);        
+        nuevoCar.setLigaIzq(p);
+        nuevoCar.setLigaDer(p.getLigaDer());
         p.setLigaDer(nuevoCar);
-        p = p.getLigaDer();
-        nuevoCar.setLigaDer(p);
-        p.setLigaIzq(nuevoCar);
+        p.getLigaDer().getLigaDer().setLigaIzq(nuevoCar);
     }
     
     public void Intercambio (){
@@ -44,7 +43,7 @@ public class ListaLigada {
         Nodo p = cab.getLigaDer();
         while (contar != 2){
             if (p.getCar() == ' '){
-                contar++;
+                contar = contar + 1;
             }
             p = p.getLigaDer();
         }
@@ -56,10 +55,10 @@ public class ListaLigada {
     
     public void Elimina (){
         int contar = 0;
-        Nodo p = cab.getLigaIzq();
+        Nodo p = ult.getLigaIzq();
         while (contar != 1){
             if (p.getCar() == ' '){
-                contar++;
+                contar = contar + 1;
             }
             p = p.getLigaIzq();
         }
@@ -68,9 +67,8 @@ public class ListaLigada {
         p.getLigaDer().setLigaIzq(p.getLigaIzq());
     }
     
-    public char MostrarHilera (){
+    public char MostrarHilera(){
         x = x.getLigaDer();
         return x.getCar();
     }
-    
 }

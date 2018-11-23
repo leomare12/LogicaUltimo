@@ -18,8 +18,6 @@ public class UltimoLogica {
         frase = sc.nextLine();
         for (int i=0; i<frase.length(); i++){
             hilera.CreaLista(frase.charAt(i));
-            aux = hilera.MostrarHilera();
-            System.out.print(aux);
         }
         System.out.println("");
         
@@ -30,7 +28,7 @@ public class UltimoLogica {
         hilera.Elimina();
         
         for (int i=0; i<frase.length();i++){
-            System.out.println(hilera.MostrarHilera());
+            System.out.print(hilera.MostrarHilera());
         }
     }    
 }

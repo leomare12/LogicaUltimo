@@ -38,5 +38,4 @@ public class Nodo {
     public char getCar() {
         return car;
     }
-
 }
